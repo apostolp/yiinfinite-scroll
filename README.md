@@ -63,8 +63,13 @@ This is how the complete view file will look like:
 	<?php $this->widget('ext.yiinfinite-scroll.YiinfiniteScroller', array(
 	    'contentSelector' => '#posts',
 	    'itemSelector' => 'div.post',
+	    'loadingImg' => '/images/lazy.gif',
 	    'loadingText' => 'Loading...',
 	    'donetext' => 'This is the end... my only friend, the end',
+	    'jsCalback' =>
+		'function( newElements ) {
+                        /* some code */
+                    }',
 	    'pages' => $pages,
 	)); ?>
 
@@ -77,3 +82,10 @@ There are a few properties that can be set for YiinfiniteScroller:
 - donetext: The text to be displayed when all the pages had been loaded
 - pages:  The CPagination object
 - errorHandler: Javascrit function that is called when the ajax errors or 404s.
+- loadingImg: loading image
+- jsCalback: optional callback when new content is successfully loaded in.
+
+Changes 3/3/2012:
+
+- add new parametr loadingImg
+- add new parametr jsCalback
